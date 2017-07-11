@@ -7,15 +7,13 @@ document.addEventListener('DOMContentLoaded',function() {
       method: 'GET',
       dataType: 'json',
     }).done(function(data) {
-
-      catBox(data.cats[0], 1);
-      catBox(data.cats[1], 2);
-      catBox(data.cats[2], 3);
+      data.cats.forEach(catBox);
     });
   });
 });
 
-function catBox(cat, number) {
+function catBox(cat, index) {
+  var number = index + 1;
   // var selector = '#cat1.cat-box';
   var selector = '#cat' + number + '.cat-box';
 
